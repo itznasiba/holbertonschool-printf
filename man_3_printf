@@ -1,0 +1,74 @@
+.TH _PRINTF 3 "January 2026" "1.0" "Holberton School C Library"
+.SH NAME
+_printf \- produces output according to a format string
+
+.SH SYNOPSIS
+.B "#include \"main.h\""
+.br
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The
+.B _printf
+function produces output according to a format string provided in
+.B format.
+It handles the following conversion specifiers:
+
+.TP
+.B c
+Character.
+
+.TP
+.B s
+String of characters. If the string is
+.B NULL,
+prints "(null)".
+
+.TP
+.B %
+Prints a percent sign.
+
+.TP
+.B d, i
+Signed decimal integer.
+
+.SH RETURN VALUE
+Upon successful completion, _printf returns the number of characters printed
+(excluding the null byte used to end output to strings).
+If
+.B format
+is NULL, the function returns -1.
+
+.SH ERRORS
+No errno is set by _printf. Invalid conversion specifiers will print the percent
+sign followed by the unknown character.
+
+.SH EXAMPLE
+The following example prints a string, a character, and a number:
+
+.nf
+#include "main.h"
+
+int main(void)
+{
+    int len;
+
+    len = _printf("Hello %s! Number: %d%%\n", "World", 100);
+    return 0;
+}
+.fi
+
+.SH NOTES
+.B _printf
+does not handle:
+
+.RS
+- flag characters
+- field width
+- precision
+- length modifiers
+.RE
+
+.SH AUTHOR
+Holberton School
+
