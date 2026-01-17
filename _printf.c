@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			if (format[i] == '%')
-				count+=print_percent(void);
+				count+=print_percent();
 			i++;
 
 			if (format[i] == '\0')
