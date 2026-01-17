@@ -31,16 +31,16 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format[i] == '%')
-				count+=print_percent();
 			i++;
 
 			if (format[i] == '\0')
-				break;
+				return (-1);
 			if (format[i] =='c')
 				count+=print_char(args);
 			else if (format[i] == 's')
 				count+=print_string(args);
+			else if (format[i] == '%')
+				count+=print_percent();
 			else if (format[i] == 'd' || format[i] == 'i')
 				count += print_number(args);
 			else
