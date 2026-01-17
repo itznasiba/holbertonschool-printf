@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 				count+=print_percent();
 			else
 			{
-				write(1,'%',1);
+				write(1,"%",1);
 				write(1,&format[i],1);
 				count+=2;
 			}
